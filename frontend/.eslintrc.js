@@ -56,6 +56,7 @@ module.exports = {
     Shadowing is the process by which a local variable shares the same name as a variable in its containing scope. Eliminate shadowed variables declarations.
     */
     "no-shadow": ERROR,
+    "no-template-curly-in-string": OFF,
     // all named args must be used, and there must be no unused variables
     "no-unused-vars": [
       ERROR,

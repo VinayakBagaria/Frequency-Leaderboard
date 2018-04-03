@@ -1,10 +1,18 @@
 import React from 'react';
+import axios from 'axios';
 
 class Form extends React.Component {
+  state = {
+    leaderboardData: {},
+  };
   handleSubmit = e => {
     e.preventDefault();
-    alert(typeof this.refs.limit.value);
+    axios(`/fetchTopList/${this.refs.limit.value}`).then(response =>
+      this.setState({
+        leaderboardData: response.data,
+      }));
   };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
