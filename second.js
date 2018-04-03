@@ -5,7 +5,7 @@ axios('http://terriblytinytales.com/test.txt')
     var pattern = /\w+/g;
     var matchedWords = res.data.match(pattern);
 
-    const mostFreq = 7;
+    const mostFreq = 15;
 
     const counts = matchedWords.reduce((stats, word) => {
       if(stats.hasOwnProperty(word)) {
@@ -29,10 +29,17 @@ axios('http://terriblytinytales.com/test.txt')
       }
     })
 
+    console.log(freqArray);
+    const answer = [];
 
-    let finalAnswer = Object.keys(freqArray)
-      .reverse().reduce((answer, array) => {
+    Object.keys(freqArray)
+      .reverse().map(index => {
+        let elementsToExtract = mostFreq - answer.length;
 
-      }, {})
+        const data = freqArray[index].splice(0, elementsToExtract);
+        answer.push(...data);
+      });
+
+    console.log(answer);
   });
 
