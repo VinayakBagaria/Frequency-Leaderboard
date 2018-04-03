@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-axios('http://terriblytinytales.com/test.txt')
-  .then(res => {
+async function getTopWords(mostFreq) {
+  const res = await axios('http://terriblytinytales.com/test.txt');
+
+
     var pattern = /\w+/g;
     var matchedWords = res.data.match(pattern);
-
-    const mostFreq = 7;
 
     const counts = matchedWords.reduce((stats, word) => {
       if(stats.hasOwnProperty(word)) {
@@ -20,12 +20,12 @@ axios('http://terriblytinytales.com/test.txt')
     const sortedKeys = Object.keys(counts)
       .sort((a, b) => counts[b] - counts[a]).slice(0, mostFreq);
 
-    const resultantObj = sortedKeys.reduce((result, element) => {
+    return sortedKeys.reduce((result, element) => {
       return {
         ...result,
         [element]: counts[element]
       }
     }, {});
+}
 
-    console.log(resultantObj);
-  });
+module.exports = getTopWords;
