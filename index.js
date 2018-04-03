@@ -1,11 +1,11 @@
 const axios = require('axios');
-console.time('started');
+
 axios('http://terriblytinytales.com/test.txt')
   .then(res => {
     var pattern = /\w+/g;
     var matchedWords = res.data.match(pattern);
 
-    const mostFreq = 20;
+    const mostFreq = 7;
 
     const counts = matchedWords.reduce((stats, word) => {
       if(stats.hasOwnProperty(word)) {
@@ -28,5 +28,4 @@ axios('http://terriblytinytales.com/test.txt')
     }, {});
 
     console.log(resultantObj);
-    console.timeEnd('started');
   });
