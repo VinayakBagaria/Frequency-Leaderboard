@@ -1,5 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Header from './containers/Header';
+import Body from './containers/Body';
+import './index.css';
 
-ReactDOM.render(<h1>A plain old heading</h1>, document.getElementById("root"));
+ReactDOM.render(
+  <React.Fragment>
+    <Header />
+    <Body />
+  </React.Fragment>,
+  document.getElementById('root')
+);
