@@ -1,31 +1,30 @@
 const axios = require('axios');
 
-async function getTopWords(mostFreq) {
-  const res = await axios('http://terriblytinytales.com/test.txt');
+async function getTopWords(mostFreqCount) {
+  const response = await axios('http://terriblytinytales.com/test.txt');
 
+  // get all words in an array
+  const matchedWords = response.data.match(/\w+/g);
+  // return {word: count} for all words
+  const wordCount = matchedWords.reduce((stats, word) => {
+    if (word in stats) {
+      stats[word] += 1; // eslint-disable-line no-param-reassign
+    } else {
+      stats[word] = 1; // eslint-disable-line no-param-reassign
+    }
+    return stats;
+  }, {});
 
-    var pattern = /\w+/g;
-    var matchedWords = res.data.match(pattern);
+  // get all k most frequent words which are stored as keys of the object
+  const sortedWords = Object.keys(wordCount)
+    .sort((a, b) => wordCount[b] - wordCount[a])
+    .slice(0, mostFreqCount);
 
-    const counts = matchedWords.reduce((stats, word) => {
-      if(stats.hasOwnProperty(word)) {
-        stats[word] += 1;
-      }
-      else {
-        stats[word] = 1;
-      }
-      return stats;
-    }, {});
-
-    const sortedKeys = Object.keys(counts)
-      .sort((a, b) => counts[b] - counts[a]).slice(0, mostFreq);
-
-    return sortedKeys.reduce((result, element) => {
-      return {
-        ...result,
-        [element]: counts[element]
-      }
-    }, {});
+  // return {word: count} in descending order
+  return sortedWords.reduce((result, word) => ({
+    ...result,
+    [word]: wordCount[word],
+  }), {});
 }
 
 module.exports = getTopWords;
