@@ -108,7 +108,8 @@ module.exports = {
     "react/self-closing-comp": ERROR,
     "react/no-unused-state": ERROR,
     // allow default values for unrequired props
-    "react/default-props-match-prop-types": OFF
+    "react/default-props-match-prop-types": OFF,
+    "react/no-string-refs": OFF
   },
   env: {
     browser: true
