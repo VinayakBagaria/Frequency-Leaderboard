@@ -15,7 +15,7 @@ async function getTopWords(mostFreqCount) {
     return stats;
   }, {});
 
-  // get all k most frequent words which are stored as keys of the object
+  // get k most frequent words as array which are stored as keys of the object
   const sortedWords = Object.keys(wordCount)
     .sort((a, b) => wordCount[b] - wordCount[a])
     .slice(0, mostFreqCount);
