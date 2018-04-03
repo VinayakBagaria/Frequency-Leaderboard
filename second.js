@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+console.time('started');
 axios('http://terriblytinytales.com/test.txt')
   .then(res => {
     var pattern = /\w+/g;
@@ -29,7 +30,6 @@ axios('http://terriblytinytales.com/test.txt')
       }
     })
 
-    console.log(freqArray);
     const answer = [];
 
     Object.keys(freqArray)
@@ -40,6 +40,12 @@ axios('http://terriblytinytales.com/test.txt')
         answer.push(...data);
       });
 
-    console.log(answer);
+    const resultantObj = answer.reduce((result, element) => {
+      return {
+        ...result,
+        [element]: counts[element]
+      }
+    }, {});
+    console.log(resultantObj);
+    console.timeEnd('started');
   });
-

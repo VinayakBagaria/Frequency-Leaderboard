@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+console.time('started');
 axios('http://terriblytinytales.com/test.txt')
   .then(res => {
     var pattern = /\w+/g;
@@ -28,5 +28,5 @@ axios('http://terriblytinytales.com/test.txt')
     }, {});
 
     console.log(resultantObj);
+    console.timeEnd('started');
   });
-
