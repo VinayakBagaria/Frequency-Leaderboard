@@ -1,5 +1,6 @@
 import React from 'react';
+import Form from '../components/Form';
 
-const Body = () => <h1>Body</h1>;
+const Body = () => <Form />;
 
 export default Body;
