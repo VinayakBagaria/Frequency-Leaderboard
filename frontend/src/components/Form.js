@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Loader from '../containers/Loader';
 import Table from '../containers/Table';
+import './index.css';
 
 class Form extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class Form extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="App__body">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="limit">
             Enter the maximum leaderboard count:
@@ -36,7 +37,7 @@ class Form extends React.Component {
             <Table leaderboardData={this.state.leaderboardData} />
           )
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -47,6 +47,7 @@ module.exports = {
         before: true
       }
     ],
+    "linebreak-style": OFF,
     // no function declaration in nested blocks, such as inside if
     "no-inner-declarations": [ERROR, "functions"],
     "no-multi-spaces": ERROR,
