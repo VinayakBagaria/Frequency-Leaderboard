@@ -29,7 +29,6 @@ class TableLayout extends React.Component {
   };
   render() {
     const { leaderboardData } = this.props;
-    console.log(leaderboardData);
     const { rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, leaderboardData.length - page * rowsPerPage);
     return (
