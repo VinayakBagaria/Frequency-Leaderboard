@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import TextField from 'material-ui/TextField';
 import Loader from '../containers/Loader';
-import Table from '../containers/Table';
+import TableLayout from './TableLayout';
 import './index.css';
 
 class Form extends React.Component {
@@ -45,7 +45,7 @@ class Form extends React.Component {
           <Loader />
         ) : (
           Object.keys(this.state.leaderboardData).length !== 0 && (
-            <Table leaderboardData={this.state.leaderboardData} />
+            <TableLayout leaderboardData={this.state.leaderboardData} />
           )
         )}
       </div>
