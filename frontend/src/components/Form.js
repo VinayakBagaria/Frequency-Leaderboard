@@ -10,21 +10,33 @@ class Form extends React.Component {
     limit: 1,
     leaderboardData: {},
     loading: false,
+    error: '',
   };
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
   };
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({ loading: true });
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState({ loading: true, error: '', leaderboardData: {} });
 
-    axios(`/fetchTopList/${this.state.limit}`).then(response =>
-      this.setState({
-        leaderboardData: Object.keys(response.data).map(k => (
-          { key: k, value: response.data[k] }
-        )),
+    axios(`/fetchTopList/${this.state.limit}`)
+      .then(response => {
+        if (Object.keys(response.data).includes('error')) {
+          this.setState({
+            error: response.data.error,
+          });
+        } else {
+          this.setState({
+            leaderboardData: Object.keys(response.data).map(k => (
+              { key: k, value: response.data[k] }
+            )),
+          });
+        }
+      })
+      .catch(() => this.setState({
+        error: 'Network error',
       }));
     this.setState({ loading: false });
   };
@@ -43,13 +55,16 @@ class Form extends React.Component {
             margin="normal"
           />
         </form>
-        {this.state.loading ? (
-          <Loader />
-        ) : (
-          Object.keys(this.state.leaderboardData).length !== 0 && (
-            <TableLayout leaderboardData={this.state.leaderboardData} />
-          )
+        <div className="App__table__loader">
+          {this.state.error.length > 0 && <h1>{this.state.error}</h1>}
+          {this.state.loading ? (
+            <Loader />
+          ) : (
+            Object.keys(this.state.leaderboardData).length !== 0 && (
+              <TableLayout leaderboardData={this.state.leaderboardData} />
+            )
         )}
+        </div>
       </div>
     );
   }

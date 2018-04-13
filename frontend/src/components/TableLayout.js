@@ -12,8 +12,6 @@ import Paper from 'material-ui/Paper';
 import TablePaginationActions from './TablePaginationActions';
 import TableHeaderCell from '../containers/TableHeaderCell';
 
-import './index.css';
-
 class TableLayout extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +33,7 @@ class TableLayout extends React.Component {
     const { rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, leaderboardData.length - page * rowsPerPage);
     return (
-      <Paper className="App__table">
+      <Paper>
         <div>
           <Table style={{ minWidth: 500 }}>
             <TableHead>
