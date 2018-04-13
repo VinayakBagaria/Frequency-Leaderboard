@@ -53,6 +53,7 @@ class Form extends React.Component {
             fullWidth
             type="number"
             margin="normal"
+            inputProps={{ min: '1' }}
           />
         </form>
         <div className="App__table__loader">
