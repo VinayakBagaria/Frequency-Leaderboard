@@ -1,6 +1,18 @@
 .App__body {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-template-areas:
+    ". a ."
+    ". b .";
+}
+
+.App__form {
+  grid-area: a;
+  align-self: center;
+  justify-self: center;
 }

@@ -23,7 +23,7 @@ class Form extends React.Component {
   render() {
     return (
       <div className="App__body">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="App__form">
           <label htmlFor="limit">
             Enter the maximum leaderboard count:
             <input type="number" min="1" name="limit" ref="limit" />

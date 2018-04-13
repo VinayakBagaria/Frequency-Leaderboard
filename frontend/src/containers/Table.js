@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './index.css';
 
 const Table = ({ leaderboardData }) => (
-  <table>
+  <table className="App__table">
     <thead>
       <tr>
         <th>Word</th>

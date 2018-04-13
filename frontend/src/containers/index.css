@@ -1,0 +1,5 @@
+.App__table {
+  grid-area: b;
+  align-self: center;
+  justify-self: center;
+}
