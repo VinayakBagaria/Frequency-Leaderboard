@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Table, {
+  TableHead,
   TableBody,
   TableCell,
   TableFooter,
@@ -9,6 +10,8 @@ import Table, {
 } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import TablePaginationActions from './TablePaginationActions';
+import TableHeaderCell from '../containers/TableHeaderCell';
+
 import './index.css';
 
 class TableLayout extends React.Component {
@@ -34,7 +37,13 @@ class TableLayout extends React.Component {
     return (
       <Paper className="App__table">
         <div>
-          <Table>
+          <Table style={{ minWidth: 500 }}>
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>Letter</TableHeaderCell>
+                <TableHeaderCell numeric>Frequency</TableHeaderCell>
+              </TableRow>
+            </TableHead>
             <TableBody>
               {leaderboardData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => (
                 <TableRow key={n.key}>

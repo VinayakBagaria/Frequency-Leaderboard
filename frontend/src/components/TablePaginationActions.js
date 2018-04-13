@@ -32,7 +32,7 @@ class TablePaginationActions extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div style={{ flexShrink: 0 }}>
         <IconButton
           onClick={this.handleFirstPageButtonClick}
           disabled={page === 0}

@@ -1,24 +1,24 @@
 .App__body {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 10px;
-    grid-template-areas:
-    ". a ."
-    ". b .";
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 10px;
+  grid-template-areas:
+  ". a ."
+  ". b .";
 }
 
 .App__form {
-  grid-area: a;
-  align-self: center;
-  justify-self: center;
+grid-area: a;
+align-self: center;
+justify-self: center;
 }
 
 .App__table {
-  grid-area: b;
-  align-self: center;
-  justify-self: center;
+grid-area: b;
+align-self: center;
+justify-self: center;
 }
