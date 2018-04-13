@@ -42,7 +42,10 @@ class TableLayout extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {leaderboardData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => (
+              {leaderboardData.slice(
+                page * rowsPerPage,
+                page * rowsPerPage + rowsPerPage
+              ).map(n => (
                 <TableRow key={n.key}>
                   <TableCell>{n.key}</TableCell>
                   <TableCell numeric>{n.value}</TableCell>
@@ -75,7 +78,10 @@ class TableLayout extends React.Component {
 }
 
 TableLayout.propTypes = {
-  leaderboardData: PropTypes.array,
+  leaderboardData: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
 export default TableLayout;

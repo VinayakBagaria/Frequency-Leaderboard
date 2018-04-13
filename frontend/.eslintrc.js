@@ -50,6 +50,7 @@ module.exports = {
     "linebreak-style": OFF,
     // no function declaration in nested blocks, such as inside if
     "no-inner-declarations": [ERROR, "functions"],
+    "no-mixed-operators": OFF,
     "no-multi-spaces": ERROR,
     // dont use with statement in js
     "no-restricted-syntax": [ERROR, "WithStatement"],
