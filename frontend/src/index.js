@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './containers/Header';
-import Body from './containers/Body';
+import { Header, Body } from './containers';
 import './index.css';
 
 ReactDOM.render(

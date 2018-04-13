@@ -9,8 +9,8 @@ import Table, {
   TableRow,
 } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
-import TablePaginationActions from './TablePaginationActions';
-import TableHeaderCell from '../containers/TableHeaderCell';
+import { TablePaginationActions } from './index';
+import { TableHeaderCell } from '../containers';
 
 class TableLayout extends React.Component {
   constructor(props) {

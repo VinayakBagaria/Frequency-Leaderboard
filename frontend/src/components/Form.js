@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import TextField from 'material-ui/TextField';
-import Loader from '../containers/Loader';
-import TableLayout from './TableLayout';
-import './index.css';
+import { Loader } from '../containers';
+import { TableLayout } from './index';
 
 class Form extends React.Component {
   state = {
