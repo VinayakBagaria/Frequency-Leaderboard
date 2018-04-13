@@ -12,11 +12,13 @@ class Form extends React.Component {
     loading: false,
     error: '',
   };
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
   };
+
   handleSubmit = event => {
     event.preventDefault();
     this.setState({ loading: true, error: '', leaderboardData: {} });
@@ -38,6 +40,7 @@ class Form extends React.Component {
       .catch(() => this.setState({
         error: 'Network error',
       }));
+
     this.setState({ loading: false });
   };
 
