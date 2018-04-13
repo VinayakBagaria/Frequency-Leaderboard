@@ -13,24 +13,26 @@ import { TablePaginationActions } from './index';
 import { TableHeaderCell } from '../containers';
 
 class TableLayout extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: 0,
-      rowsPerPage: 5,
-    };
-  }
-  handleChangePage = (event, page) => {
+  state = {
+    page: 0,
+    rowsPerPage: 5,
+  };
+
+  handleChangePage = (event, page) => { // eslint-disable-line no-unused-vars
     this.setState({ page });
   };
 
   handleChangeRowsPerPage = event => {
     this.setState({ rowsPerPage: event.target.value });
   };
+
   render() {
     const { leaderboardData } = this.props;
     const { rowsPerPage, page } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, leaderboardData.length - page * rowsPerPage);
+    const emptyRows = rowsPerPage - Math.min(
+      rowsPerPage,
+      leaderboardData.length - page * rowsPerPage
+    );
     return (
       <Paper>
         <div>
