@@ -5,7 +5,7 @@
     flex-direction: column; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-row-gap: 10px;
     grid-template-areas:
     ". a ."
     ". b .";
