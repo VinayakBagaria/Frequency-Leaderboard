@@ -8,11 +8,6 @@ import Table, {
   TableRow,
 } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
-import IconButton from 'material-ui/IconButton';
-import FirstPageIcon from '@material-ui/icons/FirstPage';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import LastPageIcon from '@material-ui/icons/LastPage';
 import TablePaginationActions from './TablePaginationActions';
 import './index.css';
 
@@ -33,18 +28,18 @@ class TableLayout extends React.Component {
   };
   render() {
     const { leaderboardData } = this.props;
+    console.log(leaderboardData);
     const { rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, leaderboardData.length - page * rowsPerPage);
     return (
-      <Paper>
+      <Paper className="App__table">
         <div>
           <Table>
             <TableBody>
               {leaderboardData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => (
-                <TableRow key={n.id}>
-                  <TableCell>{n.name}</TableCell>
-                  <TableCell numeric>{n.calories}</TableCell>
-                  <TableCell numeric>{n.fat}</TableCell>
+                <TableRow key={n.key}>
+                  <TableCell>{n.key}</TableCell>
+                  <TableCell numeric>{n.value}</TableCell>
                 </TableRow>
                 ))}
               {emptyRows > 0 && (
@@ -74,7 +69,7 @@ class TableLayout extends React.Component {
 }
 
 TableLayout.propTypes = {
-  leaderboardData: PropTypes.objectOf(PropTypes.number).isRequired,
+  leaderboardData: PropTypes.array,
 };
 
 export default TableLayout;

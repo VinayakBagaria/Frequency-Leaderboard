@@ -22,7 +22,9 @@ class Form extends React.Component {
 
     axios(`/fetchTopList/${this.state.limit}`).then(response =>
       this.setState({
-        leaderboardData: response.data,
+        leaderboardData: Object.keys(response.data).map(k => (
+          { key: k, value: response.data[k] }
+        )),
       }));
     this.setState({ loading: false });
   };
