@@ -16,11 +16,12 @@ body {
   flex-direction: column;
 }
 
-.App__form {
+.App__form #number{
+  font-size: 1.5rem;
 }
 
 .App__table__loader {
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 @media only screen and (max-width: 500px) {
