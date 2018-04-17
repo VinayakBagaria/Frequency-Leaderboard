@@ -3,6 +3,13 @@ const getTopWords = require('./fetcher');
 
 const app = express();
 
+const port = process.env.PORT || 5000;
+
+// Express only serves static assets in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 app.get('/fetchTopList/:countToFetch', async (req, res) => {
   const {
     countToFetch,
@@ -16,5 +23,4 @@ app.get('/fetchTopList/:countToFetch', async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 5000;
 app.listen(port);
