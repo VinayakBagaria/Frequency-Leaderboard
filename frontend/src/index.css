@@ -20,6 +20,18 @@ body {
   font-size: 1.5rem;
 }
 
+.App__form label {
+  font-size: 1.5rem;
+}
+
+.App__table__loader th {
+  font-size: 1.1rem;
+}
+
+.App__table__loader td {
+  font-size: 0.90rem;
+}
+
 .App__table__loader {
   margin-top: 50px;
 }
