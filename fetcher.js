@@ -13,9 +13,7 @@ async function getTopWords(mostFreqCount) {
       stats[word] = 1; // eslint-disable-line no-param-reassign
     }
     return stats;
-  }, {});
-
-  console.log(Object.keys(wordCount).length);
+  }, {})
 
   // get k most frequent words as array which are stored as keys of the object
   const sortedWords = Object.keys(wordCount)
