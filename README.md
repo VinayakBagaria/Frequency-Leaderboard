@@ -5,7 +5,7 @@ Web app for a technical task for TTT which gets k most frequent words from a tex
 
  How does it work?
 ================  
- A `Node.js` backend server fetches k most frequent words from a text file. The JSON object is sent to `React JS` frontend which renders it in a paginated table fashion.
+ A `Node.js` backend server fetches k most frequent words from a text file. The JSON object is sent to `React JS` frontend which renders it in a paginated table fashion. Run it [here](https://freq-leader.herokuapp.com/)
 
 Installation
 ===============
