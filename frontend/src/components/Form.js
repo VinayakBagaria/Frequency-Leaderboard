@@ -3,6 +3,7 @@ import axios from 'axios';
 import TextField from 'material-ui/TextField';
 import { Loader } from '../containers';
 import { TableLayout } from './index';
+import '../styles/Body.css';
 
 class Form extends React.Component {
   state = {
