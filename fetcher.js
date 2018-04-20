@@ -4,13 +4,15 @@ async function getTopWords(mostFreqCount) {
   const response = await axios('http://terriblytinytales.com/test.txt');
 
   // get all words in an array
-  const matchedWords = response.data.match(/\s\w+\s/g);
+  const matchedWords = response.data.match(/\w+/g);
   // return {word: count} for all words
   const wordCount = matchedWords.reduce((stats, word) => {
-    if (word in stats) {
-      stats[word] += 1; // eslint-disable-line no-param-reassign
-    } else {
-      stats[word] = 1; // eslint-disable-line no-param-reassign
+    if(isNaN(word)) {
+      if (word in stats) {
+        stats[word] += 1; // eslint-disable-line no-param-reassign
+      } else {
+        stats[word] = 1; // eslint-disable-line no-param-reassign
+      }
     }
     return stats;
   }, {})
